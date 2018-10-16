@@ -1,0 +1,53 @@
+{
+  "_from": "pkg-cp",
+  "_id": "pkg-cp@1.10.0",
+  "_inBundle": false,
+  "_integrity": "sha512-SmxdtuyIbCvJJWvNT8vDrt9f2gPLfs7fPk26fxEQc30BvUd/z+XtyV1Pl18SUa4hRSZbDZeHBqLSktIBLhRz7w==",
+  "_location": "/pkg-cp",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "pkg-cp",
+    "name": "pkg-cp",
+    "escapedName": "pkg-cp",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pkg-cp/-/pkg-cp-1.10.0.tgz",
+  "_shasum": "be06308add80ce98de57f947514610e94d2c2d59",
+  "_spec": "pkg-cp",
+  "_where": "/Users/apple/projects/MotherFlower_App",
+  "author": "",
+  "bundleDependencies": false,
+  "dependencies": {
+    "@ptomasroos/react-native-multi-slider": "^1.0.0",
+    "awesome-phonenumber": "^2.2.6",
+    "google-libphonenumber": "^3.1.8",
+    "react-native-dropdownalert": "^3.4.0",
+    "react-native-elevated-view": "0.0.6",
+    "react-native-fast-image": "^4.0.14",
+    "react-native-material-ripple": "^0.8.0",
+    "react-native-material-textfield": "^0.12.0",
+    "react-native-modal": "^6.1.0",
+    "react-native-simple-toast": "0.0.8",
+    "react-native-size-matters": "^0.1.1",
+    "react-native-snap-carousel": "^3.7.2",
+    "react-native-star-rating": "^1.0.9",
+    "react-native-timer": "^1.3.3"
+  },
+  "deprecated": false,
+  "description": "commen rtl  react native component ",
+  "license": "ISC",
+  "main": "index.js",
+  "name": "pkg-cp",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.16.0"
+}
