@@ -28,6 +28,7 @@ export default class App extends Component {
                             <View
                                 key={index}
                                 title={tab.title}
+                                badgeCount={tab.badgeCount}
                                 style={{
                                     flex: 1,                            // Take up all available space
                                     justifyContent: 'center',           // Center vertically

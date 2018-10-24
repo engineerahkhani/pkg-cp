@@ -21,20 +21,26 @@ export default (CPToggle = props => {
         {props.text}
       </Text>
       <Switch
-        onTintColor={props.color}
+        onTintColor={'#ccc'}
         thumbTintColor={
-          props.value
-            ? Platform.OS === 'ios'
-              ? '#fff'
-              : props.color
-            : Platform.OS === 'ios'
-              ? '#ccc'
-              : '#d3d4cd'
+          props.color
         }
-        tintColor={'#d3d4cd'}
+        tintColor={'#ccc'}
         onValueChange={value => props.onValueChange(value)}
         value={props.value}
       />
+      {
+        props.offText &&(
+          <Text
+          fontFamily="IRANSansMobile"
+          size={props.fontSize}
+          style={{ marginLeft: scale(10) }}
+          color={props.value ? props.fontColor : '#d3d4cd'}
+        >
+          {props.offText}
+        </Text>
+        )
+      }
     </View>
   );
 });

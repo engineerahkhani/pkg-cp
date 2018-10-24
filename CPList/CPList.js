@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ActivityIndicator, ScrollView } from 'react-native';
+import { View, ActivityIndicator, ScrollView ,Text} from 'react-native';
 import { Metrics } from '../../../App/Themes/index';
 import { scale } from '../index';
 import _ from 'lodash';
@@ -32,7 +32,6 @@ class CPList extends Component {
   };
   renderEmpty = () => {
     const { emptyText, EmptySearchMessage, isEmpty } = this.props;
-
     if (!isEmpty) return null;
     return <EmptySearchMessage icon="search" text={emptyText} offset={400} />;
   };
@@ -42,22 +41,19 @@ class CPList extends Component {
   renderItemContent = (item, index) => {
     const {
       RenderItem,
-      priceOption,
       listLayoutType,
       theme,
       ItemKey,
-      handleReOrderBtnPress
     } = this.props;
     return (
       <View key={item[ItemKey]}>
         <RenderItem
           item={item}
           index={index}
-          priceOption={priceOption}
           onPress={() => this.onListItemPress(item)}
           itemViewType={listLayoutType}
           theme={theme}
-          handleReOrderBtnPress={handleReOrderBtnPress}
+          {...this.props}
         />
         {this.renderSeparator()}
       </View>

@@ -11,7 +11,7 @@ export const Icon  = (props) => (
             name={props.name}
             size={props.size || 24}
             color={props.color}
-            style={props.style}
+            style={[{backgroundColor:'transparent'},props.style]}
         /> :
         <MoonIcon
             name={props.name}

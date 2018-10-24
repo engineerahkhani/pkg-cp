@@ -26,21 +26,22 @@ export default (CPAlert = props => {
           }}
         >
           <View>
-          <Text style={{textAlign:'right'}}>{props.title}</Text>
-          {
-            props.subTitle && <Text style={{textAlign:'right'}}>{props.subTitle}</Text>
-          }
+            <Text style={{ textAlign: 'right' }}>{props.title}</Text>
+            {props.subTitle && (
+              <Text style={{ textAlign: 'right' }}>{props.subTitle}</Text>
+            )}
           </View>
           <Image
             source={Img}
             style={{
               width: scale(80),
               height: scale(90),
-              marginLeft: scale(52)
+              marginLeft: scale(42)
             }}
             resizeMode={'contain'}
           />
         </View>
+          {props.childComponent && { ...props.childComponent }}
         <View
           style={{
             flexDirection: 'row',
