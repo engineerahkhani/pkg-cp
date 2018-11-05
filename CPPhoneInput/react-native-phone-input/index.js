@@ -233,7 +233,8 @@ export default class PhoneInput extends Component {
           <Text
             style={{
               color: this.props.textFiledProps.tintColor,
-              fontSize: scale(60)
+              fontSize: scale(60),
+              marginHorizontal:scale(10)
             }}
           >
             |

@@ -1,48 +1,40 @@
 import React from 'react';
 import { View, ImageBackground, Image } from 'react-native';
 import { Ripple, Icon, Text, scale, Modal } from '../index';
-import Img from './img.png';
 
 export default (CPAlert = props => {
   return (
     <Modal
       visible={props.visible}
-      toggleModal={value => this.toggleModal()}
+      toggleModal={value => props.toggleModal(value)}
       disableSwipe
-      disableBackDropPress
+      disableBackDropPress={!props.enableBackDropPress}
     >
       <View
         style={{
           backgroundColor: '#fff',
           padding: scale(52),
-          borderRadius: 4
+          borderRadius: 4,
         }}
       >
         <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            justifyContent: 'flex-end'
+            justifyContent: 'space-between'
           }}
         >
+        <Icon type size={scale(50)} name={props.icon} color={props.color}/>
           <View>
-            <Text style={{ textAlign: 'right' }}>{props.title}</Text>
+            <Text color={props.color} style={{ textAlign: 'right' }}>{props.title}</Text>
             {props.subTitle && (
               <Text style={{ textAlign: 'right' }}>{props.subTitle}</Text>
             )}
           </View>
-          <Image
-            source={Img}
-            style={{
-              width: scale(80),
-              height: scale(90),
-              marginLeft: scale(42)
-            }}
-            resizeMode={'contain'}
-          />
+          
         </View>
           {props.childComponent && { ...props.childComponent }}
-        <View
+        {props.hideButtons ||<View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
@@ -76,8 +68,12 @@ export default (CPAlert = props => {
           >
             <Text color={'#fff'}>بله</Text>
           </Ripple>
-        </View>
+        </View>}
       </View>
     </Modal>
   );
 });
+CPAlert.defaultProps={
+  icon:'exclamation-triangle',
+  color:'#ff5c77'
+}

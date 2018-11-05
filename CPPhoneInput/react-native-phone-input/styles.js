@@ -36,7 +36,8 @@ export default StyleSheet.create({
   flag: {
     height: scale(80),
     width: scale(80),
-    marginTop: scale(5),
+    marginTop: scale(-5),
+    marginRight: scale(10),
     borderWidth: scale(1.5),
     borderColor: '#cecece',
     backgroundColor: 'transparent'

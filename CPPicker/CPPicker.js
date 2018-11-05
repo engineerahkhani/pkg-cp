@@ -20,10 +20,10 @@ export default class App extends React.Component {
       containerStyle,
       backgroundColor,
       color,
-      titleColor,
+      textColor,
       headerAlign,
       width,
-      filterAble
+      filterAble,
     } = this.props;
     return (
       <View style={[styles.container, containerStyle]}>
@@ -31,7 +31,7 @@ export default class App extends React.Component {
           size={32}
           style={{
             textAlign: headerAlign || 'right',
-            paddingBottom: scale(0),
+            paddingBottom: scale(5),
             color
           }}
         >
@@ -46,6 +46,7 @@ export default class App extends React.Component {
           width={width}
           backgroundColor={backgroundColor}
           filterAble={filterAble}
+          textColor={textColor}
         />
       </View>
     );

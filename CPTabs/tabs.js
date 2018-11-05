@@ -11,6 +11,7 @@ export default class Tabs extends Component {
 
 
   textAlign = index => {
+    return 'center'
     if (index === this.props.items.length - 1) return 'right';
     switch (index) {
       case 0:
