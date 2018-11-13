@@ -148,7 +148,7 @@ export default class RNPickerSelect extends PureComponent {
           <View
             style={{
               alignItems: 'center',
-              paddingVertical: index === 0 ? scale(30) : scale(10)
+              paddingVertical: index === 0 ? scale(50) : scale(20)
             }}
           >
             <Text
@@ -196,7 +196,6 @@ export default class RNPickerSelect extends PureComponent {
   renderPicker() {
     const { visible ,inputValue} = this.state;
     const { color, backgroundColor,filterAble,textColor } = this.props;
-    console.log('visible', visible);
     return (
       <View style={[styles.viewContainer]}>
         <Ripple
@@ -211,7 +210,6 @@ export default class RNPickerSelect extends PureComponent {
               flexDirection: 'row',
               alignItems: 'center',
               paddingVertical: scale(30),
-              // backgroundColor:'green'
             }}
           >
             <Icon

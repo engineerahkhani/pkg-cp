@@ -20,7 +20,7 @@ export default (CPLoading = ({ loading, ...props }) => {
       <View style={styles.modalBackground}>
         <View style={styles.activityIndicatorWrapper}>
           <ActivityIndicator
-            color={'#ff5c77'}
+            color={'#10ac54'}
             animating={loading}
             size="large"
           />

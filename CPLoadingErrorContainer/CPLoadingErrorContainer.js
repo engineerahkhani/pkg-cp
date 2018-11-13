@@ -10,7 +10,7 @@ import {
 // import DropdownAlert from 'react-native-dropdownalert';
 import {
     Loading,
-    ErrorMessage,
+    ElevatedView,
     DropdownAlert,
     fontSize,
     scale
