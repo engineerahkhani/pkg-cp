@@ -7,7 +7,7 @@ import {
   Platform
 } from 'react-native';
 
-export default (CPLoading = ({ loading, ...props }) => {
+export default (CPLoading = ({ loading,color, ...props }) => {
   return (
     <Modal
       transparent={true}
@@ -20,7 +20,7 @@ export default (CPLoading = ({ loading, ...props }) => {
       <View style={styles.modalBackground}>
         <View style={styles.activityIndicatorWrapper}>
           <ActivityIndicator
-            color={'#10ac54'}
+            color={color}
             animating={loading}
             size="large"
           />

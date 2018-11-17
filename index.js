@@ -34,5 +34,6 @@ export {default as fontSize } from './FontSize/FontSize';
 export {default as RoundedButton} from './CPRoundedButton/CPRoundedButton';
 export {default as DropdownAlert} from './DropdownAlert/DropdownAlert';
 export {default as PasswordInput} from './PasswordInput/PasswordInput';
+export {default as MultiSelect} from './CPMultiSelect/CPMultiSelect';
 export {Menu} from './CPPopUpMenu/index';
 export {MenuItem} from './CPPopUpMenu/index';
