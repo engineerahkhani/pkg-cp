@@ -16,6 +16,7 @@ import {
   scale
 } from '../index';
 import { connect } from 'react-redux';
+import metrics from '../../../App/Themes/Metrics';
 
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
 const APPBAR_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
@@ -87,6 +88,8 @@ class Container extends Component {
             fontFamily: 'IRANSansMobile',
             fontSize: fontSize(scale(33))
           }}
+          defaultContainer={{justifyContent:'center',alignItems:'center',minHeight:metrics.headerHeight}}
+          defaultTextContainer={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}
           closeInterval={7500}
           ref={ref => (this.dropdown = ref)}
           updateStatusBar={false}

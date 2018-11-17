@@ -181,12 +181,12 @@ export default class MultiSelect extends Component {
             />
           </TouchableOpacity>
           <Text
-            style={[
+            style={
               {
                 color: tagTextColor,
                 fontSize: 15
               }
-            ]}
+            }
             numberOfLines={1}
           >
             {item[displayKey]}
@@ -335,7 +335,7 @@ export default class MultiSelect extends Component {
                   ? 'IRANSansMobile_Medium'
                   : 'IRANSansMobile'
               }
-              style={[item.disabled ? { color: 'grey' } : {}]}
+             // style={[item.disabled ? { color: 'grey' } : {}]}
             >
               {item[displayKey]}
             </Text>
@@ -356,13 +356,13 @@ export default class MultiSelect extends Component {
           <Text
             style={[
               {
-                flex: 1,
                 fontSize: 16,
                 paddingTop: 5,
-                paddingBottom: 5
+                paddingBottom: 5,
+                color:itemTextColor
               },
-              this._itemStyle(item),
-              item.disabled ? { color: 'grey' } : {}
+              // this._itemStyle(item),
+              // item.disabled ? { color: 'grey' } : {}
             ]}
           >
             Add {item.name} (tap or press return)
@@ -523,7 +523,7 @@ export default class MultiSelect extends Component {
                     { backgroundColor: submitButtonColor }
                   ]}
                 >
-                  <Text style={[styles.buttonText]}>{submitButtonText}</Text>
+                  <Text style={styles.buttonText}>{submitButtonText}</Text>
                 </TouchableOpacity>
               )}
             </View>
