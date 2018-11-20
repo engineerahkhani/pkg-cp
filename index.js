@@ -37,3 +37,4 @@ export {default as PasswordInput} from './PasswordInput/PasswordInput';
 export {default as MultiSelect} from './CPMultiSelect/CPMultiSelect';
 export {Menu} from './CPPopUpMenu/index';
 export {MenuItem} from './CPPopUpMenu/index';
+export * from 'react-native-indicators';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ImageBackground } from 'react-native';
-import { Ripple, Icon, Text, scale } from '../index';
+import { Ripple, Icon, Text, scale, WaveIndicator } from '../index';
 
 export const ButtonFooter = props => {
   return (
@@ -14,14 +14,21 @@ export const ButtonFooter = props => {
           flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: props.disabled
-            ? '#989898'
-            : props.backgroundColor || 'green'
+          backgroundColor: props.backgroundColor || 'green'
         }}
       >
-        <Text size={42} style={{ color: '#fff', textAlign: 'center' }}>
-          {props.text}
-        </Text>
+        {props.loading ? (
+          <WaveIndicator
+            count={3}
+            size={30}
+            color={props.indicatorColor}
+          />
+        ) : (
+            <Text size={42} style={{ color: '#fff', textAlign: 'center' }}>
+              {props.text}
+            </Text>
+          )}
+
         {props.icon && (
           <Icon
             size={scale(43)}

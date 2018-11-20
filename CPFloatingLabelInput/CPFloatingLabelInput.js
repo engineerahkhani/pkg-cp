@@ -26,7 +26,7 @@ export default FloatingLabelInput = (props) => {
             disabledLineWidth={scale(props.lineWidth||1)}
             onChangeText={text => props.onChangeText(text)}
             autoCorrect={false}
-            multiline={true}
+            multiline={props.multiline}
         />
     )
 }

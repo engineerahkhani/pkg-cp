@@ -26,7 +26,7 @@ export default (CPAlert = props => {
         >
         <Icon type size={scale(50)} name={props.icon} color={props.color}/>
           <View>
-            <Text color={props.color} style={{ textAlign: 'right' }}>{props.title}</Text>
+            <Text color={'#000'} style={{ textAlign: 'right' }}>{props.title}</Text>
             {props.subTitle && (
               <Text style={{ textAlign: 'right' }}>{props.subTitle}</Text>
             )}

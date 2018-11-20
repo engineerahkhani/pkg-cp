@@ -51,7 +51,8 @@ class Container extends Component {
       send,
       disPatchClose,
       message,
-      onRefresh
+      onRefresh,
+      theme
     } = this.props;
     const errorItems = errors.filter(item => item.errorMessage !== undefined);
     return (
@@ -73,7 +74,7 @@ class Container extends Component {
           message.type === 'error' &&
           this.dropdown.alertWithType('error', 'خطا', message.message)}
         {loading ? (
-          <Loading color={'#10ac54'} send={!!send} />
+          <Loading color={theme.header_bg_color} send={!!send} />
         ) : (
           this.props.children
         )}
@@ -106,7 +107,9 @@ class Container extends Component {
 }
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    theme:state.theme.data
+  };
 };
 const mapDispatchToProps = dispatch => ({
   disPatch: action =>

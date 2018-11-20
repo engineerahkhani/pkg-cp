@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Platform } from 'react-native';
-import { ElevatedView, Ripple, Icon, scale } from '../index';
+import { ElevatedView, Ripple, Icon, scale ,WaveIndicator} from '../index';
 
 export default (CPRoundedButton = props => {
   return (
@@ -27,13 +27,17 @@ export default (CPRoundedButton = props => {
             margin: scale(25)
           }}
         >
-          <Icon
-            name={props.name}
-            color={props.iconColor}
-            size={scale(50)}
-            onPress={() => alert()}
-            type={props.iconType}
-          />
+          {props.loading ? (
+            <WaveIndicator count={4} size={20} color={props.indicatorColor} />
+          ) : (
+            <Icon
+              name={props.name}
+              color={props.iconColor}
+              size={scale(50)}
+              onPress={() => alert()}
+              type={props.iconType}
+            />
+          )}
         </View>
       </Ripple>
     </ElevatedView>

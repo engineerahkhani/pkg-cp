@@ -61,7 +61,8 @@ export default class CPListSelect extends Component {
       style,
       loading,
       iconPaddinRight,
-      fetchFromServer,borderBottomWidth
+      disabled,
+      borderBottomWidth
     } = this.props;
     return (
       <View style={style}>
@@ -98,6 +99,7 @@ export default class CPListSelect extends Component {
                 marginRight: scale(10)
               }}
               underlineColorAndroid="transparent"
+              editable={!disabled}
             />
             <Icon
               name="map-marker"
