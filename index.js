@@ -35,6 +35,7 @@ export {default as RoundedButton} from './CPRoundedButton/CPRoundedButton';
 export {default as DropdownAlert} from './DropdownAlert/DropdownAlert';
 export {default as PasswordInput} from './PasswordInput/PasswordInput';
 export {default as MultiSelect} from './CPMultiSelect/CPMultiSelect';
+export {default as APPVersionsModal} from './APPVersionsModal/APPVersionsModal';
 export {Menu} from './CPPopUpMenu/index';
 export {MenuItem} from './CPPopUpMenu/index';
 export * from 'react-native-indicators';

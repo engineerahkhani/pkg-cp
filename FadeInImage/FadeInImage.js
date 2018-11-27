@@ -13,7 +13,7 @@ class FadeInImage extends Component {
                 }
                 : {
                     uri:
-                        'http://37.32.126.60:7090/SiteAsset/ImageNotFound.png',
+                        'https://cdn.motherflower.com:7090/SiteAsset/ImageNotFound.png',
                     priority: FastImage.priority.normal
                 };
         }
