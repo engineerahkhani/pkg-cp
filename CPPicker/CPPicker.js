@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import RNPickerSelect from './react-native-picker-select';
-import { scale, Text } from 'pkg-cp';
+import { scale, Text,WaveIndicator } from 'pkg-cp';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -24,6 +24,7 @@ export default class App extends React.Component {
       headerAlign,
       width,
       filterAble,
+      loading
     } = this.props;
     return (
       <View style={[styles.container, containerStyle]}>
@@ -37,23 +38,32 @@ export default class App extends React.Component {
         >
           {title}
         </Text>
-        <RNPickerSelect
-          items={options}
-          placeholder={this.state.placeholder}
-          value={selected}
-          onValueChange={value => onChange(value)}
-          color={color}
-          width={width}
-          backgroundColor={backgroundColor}
-          filterAble={filterAble}
-          textColor={textColor}
-        />
+        {
+          loading ? (
+          <WaveIndicator
+            count={3}
+            size={30}
+            color={color}
+          />
+        ) : (
+            <RNPickerSelect
+              items={options}
+              placeholder={this.state.placeholder}
+              value={selected}
+              onValueChange={value => onChange(value)}
+              color={color}
+              width={width}
+              backgroundColor={backgroundColor}
+              filterAble={filterAble}
+              textColor={textColor}
+            />
+          )}
       </View>
     );
   }
 }
 App.defaultProps = {
-    placeholder: 'یک مورد را انتخاب کنید'
+  placeholder: 'یک مورد را انتخاب کنید'
 };
 const styles = StyleSheet.create({
   container: {

@@ -22,7 +22,7 @@ export default (CPProductDetail = ({ theme, ...props }) => {
           style={{ textDecorationLine: 'line-through', marginRight: scale(5) }}
           color="#cccccc"
         >
-          <PersianNumber number={props.product.deliveryBasePrice} /> تومان{' '}
+          <PersianNumber number={props.product.deliveryBasePrice} />
         </Text>
       ) : null;
     } else {
@@ -32,7 +32,7 @@ export default (CPProductDetail = ({ theme, ...props }) => {
           style={{ textDecorationLine: 'line-through', marginRight: scale(5) }}
           color="#cccccc"
         >
-          <PersianNumber number={props.product.pickupBasePrice} /> تومان{' '}
+          <PersianNumber number={props.product.pickupBasePrice} />
         </Text>
       ) : null;
     }
@@ -40,9 +40,9 @@ export default (CPProductDetail = ({ theme, ...props }) => {
   return (
     <Ripple
       onPress={() => props.onClick()}
-      style={{ borderRadius: 4, overflow: 'hidden' }}
+      // style={{ borderRadius: 4, overflow: 'hidden' }}
     >
-      <ElevatedView style={props.style}>
+      <ElevatedView elevation={0} style={props.style}>
         <View
           style={{
             borderRadius: 4,
@@ -58,7 +58,7 @@ export default (CPProductDetail = ({ theme, ...props }) => {
               height: props.height,
               minWidth: props.width,
               width: props.width,
-              backgroundColor: '#fff'
+              backgroundColor: '#fff',
             }}
           />
         </View>
@@ -77,7 +77,7 @@ export default (CPProductDetail = ({ theme, ...props }) => {
             }}
           >
             {renderDiscountPrice()}
-            <Text size={30} color={theme.product_price_color}>
+            <Text size={25} color={theme.product_price_color}>
               <PersianNumber
                 number={
                   props.priceOption === 1

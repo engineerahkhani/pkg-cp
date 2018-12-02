@@ -9,7 +9,7 @@ import {scale,Text} from 'pkg-cp';
 export default class App extends Component {
 
     render() {
-        const {tabs,onPressTab,activeTab,backgroundColor,borderColor,fontSize} = this.props;
+        const {tabs,onPressTab,activeTab,backgroundColor,borderColor,fontSize,loading,loadingComponent} = this.props;
 
         return (
             <View style={{
@@ -22,6 +22,7 @@ export default class App extends Component {
                     activeTab={activeTab}
                     onPressTab={(index=>onPressTab(index))}
                     items={tabs}
+                    disabled={loading}
                 >
                     {tabs.map((tab,index) => {
                         return (
@@ -36,7 +37,7 @@ export default class App extends Component {
                                     backgroundColor,
                                 }}
                             >
-                                {tab.content}
+                                {loading?loadingComponent: tab.content}
                             </View>
                         )
                     })}

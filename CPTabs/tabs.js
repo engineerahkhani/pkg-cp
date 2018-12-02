@@ -37,7 +37,7 @@ export default class Tabs extends Component {
         }
   ];
   // Pull children out of props passed from App component
-  render({ children, borderColor, fontSize } = this.props) {
+  render({ children, borderColor, fontSize,disabled } = this.props) {
     console.log('active tab in tab', this.props.activeTab);
 
     return (
@@ -45,6 +45,7 @@ export default class Tabs extends Component {
         <View style={{ flexDirection: 'row' }}>
           {children.map(({ props: { title, badgeCount } }, index) => (
             <TouchableOpacity
+              disabled={disabled}
               style={this.getStyle(index)}
               // Change active tab
               onPress={() =>this.props.onPressTab(index)}

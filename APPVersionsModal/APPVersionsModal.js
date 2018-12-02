@@ -6,7 +6,7 @@ import { Ripple, Icon, Text, scale, Modal } from '../index';
 class APPVersionsModal extends Component {
   
   toggleModal = ()=>{
-    const newAppVersion =  { ...this.props.appVersions, optionalUpdate:false  }
+    const newAppVersion =  { ...this.props.appVersions, optionalUpdate:false,forceUpdate:false  }
     this.props.hideOptionalUpdate(newAppVersion)
   }
   onOkPress = () =>{
@@ -27,7 +27,7 @@ class APPVersionsModal extends Component {
         visible={forceUpdate || optionalUpdate}
         toggleModal={() => this.toggleModal()}
         disableSwipe
-        disableBackDropPress={false}
+        disableBackDropPress={true}
       >
         <View
           style={{

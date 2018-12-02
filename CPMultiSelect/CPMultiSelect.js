@@ -23,7 +23,7 @@ export default (CPMultiSelect = props => {
         itemTextColor="#000"
         displayKey={props.displayKey}
         searchInputStyle={{ color: '#CCC' }}
-        submitButtonColor="#CCC"
+        submitButtonColor="#00a651"
         textColor="#000"
         submitButtonText="انتخاب"
         fontSize={34}

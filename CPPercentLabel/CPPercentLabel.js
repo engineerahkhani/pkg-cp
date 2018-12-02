@@ -1,5 +1,5 @@
 import React from 'react'
-import {ImageBackground, View} from 'react-native';
+import {ImageBackground, Platform} from 'react-native';
 
 import {scale, Text} from '../index';
 
@@ -16,6 +16,7 @@ export default CPPercentLabel = (props) => {
                     height: scale(158),
                     alignItems: 'center',
                     justifyContent: 'center',
+                    elevation:10,
                 //    backgroundColor:'red',
                    ...props.style
                 }}>
