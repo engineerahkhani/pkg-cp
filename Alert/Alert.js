@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ImageBackground, Image } from 'react-native';
-import { Ripple, Icon, Text, scale, Modal } from '../index';
+import { Ripple, Icon, Text, scale, Modal,WaveIndicator } from '../index';
 
 export default (CPAlert = props => {
   return (
@@ -42,6 +42,7 @@ export default (CPAlert = props => {
           }}
         >
           <Ripple
+            disabled={props.loaidng}
             onPress={() => props.onCancelPress()}
             style={{
               borderRadius: 4,
@@ -56,6 +57,7 @@ export default (CPAlert = props => {
           </Ripple>
           <Ripple
             onPress={() => props.onOkPress()}
+            disabled={props.disabled}
             style={{
               borderRadius: 4,
               backgroundColor: '#00a651',
@@ -66,7 +68,11 @@ export default (CPAlert = props => {
               marginLeft: scale(52)
             }}
           >
-            <Text color={'#fff'}>بله</Text>
+           {
+             props.loading?<WaveIndicator count={3} size={30} color={'#fff'} />:
+             <Text color={'#fff'}>بله</Text>
+           }
+            
           </Ripple>
         </View>}
       </View>
