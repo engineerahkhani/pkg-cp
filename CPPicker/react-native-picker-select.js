@@ -3,7 +3,8 @@ import {
   StyleSheet,
   Modal,
   View,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 import PropTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
@@ -125,6 +126,7 @@ export default class RNPickerSelect extends PureComponent {
 
   handlePressPickerItem = (value, index) => {
     this.toggleModal();
+    this.setState({inputValue:''})
     console.log(value, index);
     this.onValueChange(value, index);
   };
@@ -148,7 +150,7 @@ export default class RNPickerSelect extends PureComponent {
           <View
             style={{
               alignItems: 'center',
-              paddingVertical: index === 0 ? scale(50) : scale(20)
+              paddingVertical: index === 0 ? scale(80) : scale(50)
             }}
           >
             <Text
@@ -245,6 +247,7 @@ export default class RNPickerSelect extends PureComponent {
           animationType="fade"
           transparent={true}
         >
+        <TouchableOpacity style={{flex:1,backgroundColor:'transparent'}} activeOpacity={1} onPress={()=>this.toggleModal()}>
           <View
             style={{
               flex: 1,
@@ -293,6 +296,7 @@ export default class RNPickerSelect extends PureComponent {
               style={{ position: 'absolute', top: scale(30), left: scale(30) }}
             />
           </View>
+        </TouchableOpacity>
         </Modal>
       </View>
     );
