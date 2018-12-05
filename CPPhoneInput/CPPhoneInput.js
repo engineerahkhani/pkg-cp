@@ -50,18 +50,11 @@ class CPPhoneInput extends Component {
     // }
     validatePhone = (text) => {
         let phone = fixNumbers(text);
-        console.log('text',phone);
         var pn = new PhoneNumber(phone, this.state.cca2.toLowerCase());
         let countryCode = PhoneNumber.getCountryCodeForRegionCode(this.state.cca2.toLowerCase());
         if(phone.charAt(0)==0 && countryCode==98 ){
             phone = phone.substr(1)
         }
-        console.log({
-            phone,
-            isValid: pn.isMobile(),
-            countryCode,
-            formatedPhone: `+${countryCode}${phone}`
-        });
         
         this.props.onChangePhoneNumber({
             phone,
