@@ -12,7 +12,20 @@ const PhoneNumber = require('awesome-phonenumber');
 import CountryPicker, {
     getAllCountries
 } from 'react-native-country-picker-modal'
-
+var
+persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g],
+arabicNumbers  = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g],
+fixNumbers = function (str)
+{
+  if(typeof str === 'string')
+  {
+    for(var i=0; i<10; i++)
+    {
+      str = str.replace(persianNumbers[i], i).replace(arabicNumbers[i], i);
+    }
+  }
+  return str;
+};
 class CPPhoneInput extends Component {
 
     constructor() {
@@ -35,9 +48,21 @@ class CPPhoneInput extends Component {
     //     this.refs.phone.selectCountry(country.iso2)
     //     this.props.onChangeCountry(country.dialCode)
     // }
-    validatePhone = (phone) => {
+    validatePhone = (text) => {
+        let phone = fixNumbers(text);
+        console.log('text',phone);
         var pn = new PhoneNumber(phone, this.state.cca2.toLowerCase());
         let countryCode = PhoneNumber.getCountryCodeForRegionCode(this.state.cca2.toLowerCase());
+        if(phone.charAt(0)==0 && countryCode==98 ){
+            phone = phone.substr(1)
+        }
+        console.log({
+            phone,
+            isValid: pn.isMobile(),
+            countryCode,
+            formatedPhone: `+${countryCode}${phone}`
+        });
+        
         this.props.onChangePhoneNumber({
             phone,
             isValid: pn.isMobile(),
