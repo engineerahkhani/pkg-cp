@@ -42,7 +42,7 @@ class CPValidator extends React.Component {
         ) {
             if (
                 nextProps.validationEmail &&
-                !/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(nextProps.value)
+                !/^([a-zA-Z0-9])([a-zA-Z0-9\._])*@(([a-zA-Z0-9])+(\.))+([a-zA-Z]{2,4})+$/.test(nextProps.value)
             ) {
                 this.validation(
                     nextProps,
