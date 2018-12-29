@@ -14,7 +14,7 @@ import PhoneNumber from './phoneNumber';
 import styles from './styles';
 import CountryPicker from './countryPicker';
 import { TextField } from 'react-native-material-textfield';
-import { Text, Ripple, Icon } from '../../index';
+import { Text, Ripple } from '../../index';
 
 export default class PhoneInput extends Component {
   static setCustomCountriesData(json) {
@@ -189,7 +189,7 @@ export default class PhoneInput extends Component {
             marginHorizontal: 0,
             borderBottomColor: this.props.textFiledProps.tintColor,
             borderBottomWidth:
-              Platform.OS === 'ios' ? StyleSheet.hairlineWidth : scale(1)
+              Platform.OS === 'ios' ? StyleSheet.hairlineWidth : scale(1),
           }
         ]}
       >
@@ -213,26 +213,17 @@ export default class PhoneInput extends Component {
           />
           <Text
             style={{
-              color: this.props.textFiledProps.tintColor,
+              color: this.props.textFiledProps.textColor,
               fontFamily: 'IRANSansMobile',
-              fontSize: scale(38)
+              fontSize: scale(43),
             }}
           >
             +{countryData.dialCode}
           </Text>
-          {/* <Icon
-            size={scale(50)}
-            type="awsome"
-            name={'window-minimize'}
-            style={{
-              color: this.props.textFiledProps.tintColor,
-              transform: [{ rotate: '90deg' }],
-              backgroundColor: 'transparent'
-            }}
-          /> */}
+          
           <Text
             style={{
-              color: this.props.textFiledProps.tintColor,
+              color: this.props.textFiledProps.textColor,
               fontSize: scale(60),
               marginHorizontal:scale(10)
             }}
@@ -243,7 +234,7 @@ export default class PhoneInput extends Component {
         <View
           style={{
             flex: 1,
-            marginLeft: scale(this.props.offset || -1)
+            marginLeft: scale(this.props.offset || -1),
           }}
         >
           <TextField
@@ -268,6 +259,7 @@ export default class PhoneInput extends Component {
             inputContainerPadding={scale(15)}
             // placeholder="9121231234"
             // placeholderTextColor={this.props.textFiledProps.tintColor}
+            style={{marginTop:Platform.OS==='ios'?0:scale(5)}}
           />
         </View>
         <CountryPicker

@@ -57,7 +57,7 @@ class Container extends Component {
     const errorItems = errors.filter(item => item.errorMessage !== undefined);
     return (
       <View style={styles.container}>
-        <StatusBar hidden={true} />
+        <StatusBar  />
         {errorItems.length > 0 &&
           this.dropdown &&
           this.dropdown.alertWithType(

@@ -8,11 +8,11 @@ export default FloatingLabelInput = (props) => {
             {...props}
             fontSize={scale(43)}
             fontFamily='IRANSansMobile'
-            textColor={props.textColor}
-            baseColor={props.baseColor}
+            textColor={props.textColor||'#000'}
+            baseColor={props.baseColor||'#999'}
             containerStyle={[{marginTop:scale(15)},props.containerStyle,]}
             inputContainerStyle={{alignItems: 'flex-end',}}
-            tintColor={props.tintColor }
+            tintColor={props.tintColor ||'#999' }
             style={[{textAlign: 'right'},props.style]}
             label={props.label}
             labelFontSize={ scale(38)}
@@ -23,7 +23,7 @@ export default FloatingLabelInput = (props) => {
             inputContainerPadding={scale(20)}
             lineWidth={scale(props.lineWidth||1.5)}
             activeLineWidth={scale(props.activeLineWidth||3)}
-            disabledLineWidth={scale(props.lineWidth||1)}
+            disabledLineWidth={scale(props.lineWidth||3)}
             onChangeText={text => props.onChangeText(text)}
             autoCorrect={false}
             multiline={props.multiline}

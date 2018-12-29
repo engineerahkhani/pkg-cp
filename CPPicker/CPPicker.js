@@ -24,7 +24,10 @@ export default class App extends React.Component {
       headerAlign,
       width,
       filterAble,
-      loading
+      loading,
+      disabled,
+      filterInputPlaceholder,
+      titleColor
     } = this.props;
     return (
       <View style={[styles.container, containerStyle]}>
@@ -32,8 +35,8 @@ export default class App extends React.Component {
           size={32}
           style={{
             textAlign: headerAlign || 'right',
-            paddingBottom: scale(5),
-            color
+            paddingBottom: scale(0),
+            color:titleColor||'#999',
           }}
         >
           {title}
@@ -56,6 +59,8 @@ export default class App extends React.Component {
               backgroundColor={backgroundColor}
               filterAble={filterAble}
               textColor={textColor}
+              disabled={disabled}
+              filterInputPlaceholder={filterInputPlaceholder}
             />
           )}
       </View>

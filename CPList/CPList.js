@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ActivityIndicator, ScrollView ,Text} from 'react-native';
+import { View, ActivityIndicator, ScrollView ,StyleSheet} from 'react-native';
 import { Metrics } from '../../../App/Themes/index';
 import { scale } from '../index';
 import _ from 'lodash';
@@ -93,7 +93,8 @@ class CPList extends Component {
       flexDirection: listLayoutType === 'table' ? 'row' : 'column',
       justifyContent: 'center',
       paddingTop:
-        listLayoutType === 'row' ? scale(4) : Metrics.paddingHorizontal / 2
+        listLayoutType === 'row' ? scale(4) : Metrics.paddingHorizontal / 2,
+        paddingBottom:scale(35),
     };
   };
   renderSeparator = () => {
@@ -104,7 +105,7 @@ class CPList extends Component {
     return (
       <View
         style={{
-          borderWidth: scale(1),
+          borderWidth: StyleSheet.hairlineWidth,
           borderColor: '#ccc'
         }}
       />

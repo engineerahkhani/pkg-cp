@@ -12,6 +12,11 @@ export default class CPRating extends Component {
             starCount: rating
         }, this.props.onChange(rating));
     }
+    componentWillReceiveProps(nexProps){
+        if(this.state.starCount!==nexProps.starCount){
+            this.setState({starCount:nexProps.starCount});
+        }
+    }
     render() {
         const {disabled,hidShow,starColor} = this.props;
         const {starCount} = this.state;

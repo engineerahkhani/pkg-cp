@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View,Platform } from 'react-native';
 import {
   Rating,
   PersianNumber,
@@ -12,7 +12,6 @@ import {
 } from '../index';
 
 export default (CPProductDetail = ({ theme, ...props }) => {
-  // console.warn('priceOption',props.priceOption);
   
   const renderDiscountPrice = () => {
     if (props.priceOption === 1) {
@@ -40,9 +39,9 @@ export default (CPProductDetail = ({ theme, ...props }) => {
   return (
     <Ripple
       onPress={() => props.onClick()}
-      // style={{ borderRadius: 4, overflow: 'hidden' }}
+      style={props.style}
     >
-      <ElevatedView elevation={0} style={props.style}>
+      <ElevatedView elevation={0} >
         <View
           style={{
             borderRadius: 4,
@@ -95,16 +94,23 @@ export default (CPProductDetail = ({ theme, ...props }) => {
           />
           
         </View>
-      </ElevatedView>
-      <PercentLabel
+        <PercentLabel
             source={{ uri: theme.base_discount_bg_img }}
-            style={props.percentLabelStyle}
+            style={{
+              top: Platform.OS === 'ios' ? scale(0) : scale(0),
+              left: scale(30),
+              width: scale(94),
+              height: scale(142)
+            }}
+            discountTextTop={props.discountTextTop}
             value={
               props.priceOption === 1
                 ? props.product.deliveryPriceDiscount
                 : props.product.pickupPriceDiscount
             }
           />
+      </ElevatedView>
+      
     </Ripple>
   );
 });

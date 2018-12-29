@@ -8,6 +8,7 @@ class CPValidator extends React.Component {
         children: PropTypes.node,
         value: PropTypes.string,
         minLength: PropTypes.number,
+        errorMarginTop: PropTypes.number,
         validationEmail: PropTypes.bool,
         isRequired: PropTypes.bool,
         showMessage: PropTypes.bool,
@@ -21,6 +22,7 @@ class CPValidator extends React.Component {
         minLength: 0,
         validationEmail: false,
         isRequired: false,
+        errorMarginTop: 25,
         checkValidation: () => {
         },
     };
@@ -64,7 +66,7 @@ class CPValidator extends React.Component {
                     `${nextProps.name} حداقل باید ${nextProps.minLength} کاراکتر باشد.`,
                     'false',
                 );
-            } else if (nextProps.isRequired && nextProps.value.length === 0) {
+            } else if (nextProps.isRequired && nextProps.value.replace(/\s/g, "").length === 0) {
                 this.validation(
                     nextProps,
                     'bar_noValid',
@@ -89,10 +91,11 @@ class CPValidator extends React.Component {
 
     render() {
         const {error} = this.state;
+        const {errorMarginTop} = this.props;
         return this.childrenWithClassName ? (
             <View style={this.props.style}>
                 {this.childrenWithClassName}
-                {this.errorMessage !== '' &&  <Text  style={{color:'red',marginTop:-scale(27),textAlign:'right'}}>{this.errorMessage}</Text>}
+                {this.errorMessage !== '' &&  <Text  style={{color:'red',marginTop:-scale(errorMarginTop),textAlign:'right'}}>{this.errorMessage}</Text>}
             </View>
         ) : (
             <View style={this.props.style}>{this.props.children}</View>

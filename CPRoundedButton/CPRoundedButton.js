@@ -5,7 +5,7 @@ import { ElevatedView, Ripple, Icon, scale ,WaveIndicator} from '../index';
 export default (CPRoundedButton = props => {
   return (
     <ElevatedView
-      elevation={8}
+      elevation={props.elevation||8}
       style={[
         {
           backgroundColor: '#fff',

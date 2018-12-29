@@ -23,12 +23,12 @@ export default CPPercentLabel = (props) => {
                 <Text
                     style={{
                         position: 'absolute',
-                        top: scale(32),
+                        top: props.discountTextTop|| scale(22),
                         alignItems: 'center',
                         justifyContent: 'center'
                     }}
                     fontFamily='IRANSansMobile(FaNum)_Medium'
-                    size={28}
+                    size={props.discountFontSize||28}
                     color='#fff'
                 >{props.value}%</Text>
             </ImageBackground>

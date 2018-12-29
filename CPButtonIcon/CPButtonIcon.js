@@ -9,12 +9,22 @@ export default (CPButtonIcon = props => {
       onPress={() => props.onPress()}
       style={[{ flexDirection: 'row', alignItems: 'center' }, props.style]}
     >
+    {props.angleDown && (
+        <Icon
+          name={'angle-down'}
+          size={props.iconSize}
+          type
+          color={props.iconColor}
+          style={[{marginRight:scale(30)}]}
+        />
+      )}
       {props.text && (
         <Text
           fontFamily={props.fontFamily}
           color={props.fontColor}
           size={props.fontSize}
           style={props.textStyle}
+          numberOfLines={1}
         >
           {props.text}
         </Text>

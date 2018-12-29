@@ -4,7 +4,8 @@ import {
   Modal,
   View,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform
 } from 'react-native';
 import PropTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
@@ -99,14 +100,13 @@ export default class RNPickerSelect extends PureComponent {
     });
   }
 
-  onValueChange(value, index) {
-    if (value === null) {
+  onValueChange(item, index) {
+    if (item.value === null) {
       return true;
     }
-    this.props.onValueChange(value, index);
-    console.log(this.state.items, index);
+    this.props.onValueChange(item.value, index);
     this.setState({
-      selectedItem: this.state.items[index]
+      selectedItem: item
     });
   }
 
@@ -124,11 +124,10 @@ export default class RNPickerSelect extends PureComponent {
     }
   }
 
-  handlePressPickerItem = (value, index) => {
+  handlePressPickerItem = (item, index) => {
     this.toggleModal();
     this.setState({inputValue:''})
-    console.log(value, index);
-    this.onValueChange(value, index);
+    this.onValueChange(item, index);
   };
   handelFilterInputChange = text => {
     this.setState({ inputValue: text });
@@ -145,7 +144,7 @@ export default class RNPickerSelect extends PureComponent {
           style={{ justifyContent: 'center' }}
           key={item.key || item.label}
           disabled={item.value === null}
-          onPress={() => this.handlePressPickerItem(item.value, index)}
+          onPress={() => this.handlePressPickerItem(item, index)}
         >
           <View
             style={{
@@ -197,10 +196,11 @@ export default class RNPickerSelect extends PureComponent {
 
   renderPicker() {
     const { visible ,inputValue} = this.state;
-    const { color, backgroundColor,filterAble,textColor } = this.props;
+    const { color, backgroundColor,filterAble,textColor,disabled,filterInputPlaceholder } = this.props;
     return (
       <View style={[styles.viewContainer]}>
         <Ripple
+          disabled={disabled}
           style={{ backgroundColor, flex: 1, flexGrow: 1, flexBasis: 0 }}
           onPress={() => this.onPressPicker()}
         >
@@ -211,7 +211,9 @@ export default class RNPickerSelect extends PureComponent {
               flexGrow: 1,
               flexDirection: 'row',
               alignItems: 'center',
-              paddingVertical: scale(30),
+              paddingVertical: scale(0),
+              marginTop:Platform.OS==='ios'?scale(15):scale(-10),
+              marginBottom:Platform.OS==='ios'?scale(15):scale(12),
             }}
           >
             <Icon
@@ -221,8 +223,9 @@ export default class RNPickerSelect extends PureComponent {
               style={{ flexGrow: 1 }}
             />
             <Text
+              size={37}
               color={textColor||color}
-              fontFamily="IRANSansMobile_Medium"
+              fontFamily="IRANSansMobile"
               style={{
                 flexGrow: 15,
                 textAlign: 'right',
@@ -235,7 +238,7 @@ export default class RNPickerSelect extends PureComponent {
           <View
             style={[
               {
-                borderTopWidth: scale(2),
+                borderTopWidth: StyleSheet.hairlineWidth,
                 borderTopColor: this.props.color
               }
             ]}
@@ -270,15 +273,17 @@ export default class RNPickerSelect extends PureComponent {
               <ScrollView
                 contentContainerStyle={{
                   backgroundColor: '#ffff',
-                  paddingHorizontal: scale(52)
+                  paddingHorizontal: scale(52),
+                  paddingTop: scale(52),
                 }}
               >
               {filterAble && (
-                <View >
+                <View  >
                   <FloatingLabelInput
                     value={inputValue}
                     onChangeText={text => this.handelFilterInputChange(text)}
                     label="جستجو"
+                    placeholder={filterInputPlaceholder}
                     tintColor="#000"
                     textColor="#000"
                     baseColor="#000"
@@ -288,13 +293,13 @@ export default class RNPickerSelect extends PureComponent {
                 {this.renderPickerItems()}
               </ScrollView>
             </ElevatedView>
-            <RoundedButton
+            {/* <RoundedButton
               onPress={() => this.toggleModal()}
               name="close"
               iconType="awsome"
               iconColor='#ff5c77'
               style={{ position: 'absolute', top: scale(30), left: scale(30) }}
-            />
+            /> */}
           </View>
         </TouchableOpacity>
         </Modal>

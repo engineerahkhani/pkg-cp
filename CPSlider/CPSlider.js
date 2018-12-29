@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Dimensions } from 'react-native';
 import { Button, Spinner } from 'native-base';
-import MultiSlider from '@ptomasroos/react-native-multi-slider';
+import MultiSlider from './MultiSlider';
 import { Number } from '../Number';
 import { Icon, Text, PersianNumber, scale, ElevatedView } from '../index';
 import { Metrics } from '../../../App/Themes/index';
@@ -38,7 +38,8 @@ export default class CPSlider extends Component {
       .show();
   };
   render() {
-    const { minValue, maxValue } = this.state;
+    const { minValue, maxValue} = this.state;
+    const {color} = this.props;
     return (
       <View>
         <View
@@ -64,6 +65,7 @@ export default class CPSlider extends Component {
           max={5000000}
           step={10000}
           customMarker={CustomMarker}
+          color={color}
         />
       </View>
     );
