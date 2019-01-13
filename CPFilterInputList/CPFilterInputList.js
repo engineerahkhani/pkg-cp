@@ -26,7 +26,7 @@ export default class CPListSelect extends Component {
     });
   }
 
-  toggleSelected = item => {
+  toggleSelected = item => { 
     this.setState(
       state => {
         if (this.props.single) {
@@ -51,8 +51,8 @@ export default class CPListSelect extends Component {
   handelFilterInputChange = text => {
     this.props.onInputValueChange(text);
   };
-  onFocus = () => this.setState({ isFocused: true });
-  onBlur = () => this.setState({ isFocused: false });
+  onFocus = () => this.setState({ isFocused: true },this.props.onFocus);
+  onBlur = () => this.setState({ isFocused: false },this.props.onBlur);
   render() {
     const { data, inputValue, isFocused } = this.state;
     const {
@@ -62,8 +62,9 @@ export default class CPListSelect extends Component {
       loading,
       iconPaddinRight,
       disabled,
-      borderBottomWidth
-    } = this.props;
+      borderBottomWidth,
+      placeholder
+    } = this.props;    
     return (
       <View style={style}>
         {filterAble && (
@@ -77,13 +78,13 @@ export default class CPListSelect extends Component {
               borderWidth: borderBottomWidth,
               flexDirection: 'row',
               justifyContent: 'flex-end',
-              alignItems: 'center'
+              alignItems: 'center',
             }}
           >
             <TextInput
               value={inputValue}
               onChangeText={text => this.handelFilterInputChange(text)}
-              placeholder="مثلا جردن"
+              placeholder={placeholder||"مثلا جردن"}
               onFocus={this.onFocus}
               onBlur={this.onBlur}
               style={{

@@ -3,7 +3,7 @@ module.exports.validateType = function(type) {
     console.warn('Missing DropdownAlert type. Available types: info, warn, error or custom');
     return false;
   }
-  if (type != 'info' && type != 'warn' && type != 'error' && type != 'custom' && type != 'success') {
+  if (type != 'info' && type != 'warn' && type != 'error' && type != 'custom' && type != 'success' &&type!=='noInternet') {
     console.warn('Invalid DropdownAlert type. Available types: info, warn, error, success, or custom');
     return false;
   }

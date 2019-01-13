@@ -407,6 +407,11 @@ export default class DropdownAlert extends Component {
           StyleSheet.flatten(defaultContainer),
           { backgroundColor: this.props.successColor }
         ];
+      case 'noInternet':
+        return [
+          StyleSheet.flatten(defaultContainer),
+          { backgroundColor: this.props.noInternetColor }
+        ];
       default:
         return [
           StyleSheet.flatten(defaultContainer),
@@ -414,20 +419,7 @@ export default class DropdownAlert extends Component {
         ];
     }
   }
-  getSourceForType(type) {
-    switch (type) {
-      case 'info':
-        return this.props.infoImageSrc;
-      case 'warn':
-        return this.props.warnImageSrc;
-      case 'error':
-        return this.props.errorImageSrc;
-      case 'success':
-        return this.props.successImageSrc;
-      default:
-        return this.props.imageSrc;
-    }
-  }
+
   getBackgroundColorForType(type) {
     switch (type) {
       case 'info':
@@ -461,6 +453,25 @@ export default class DropdownAlert extends Component {
             type="awsome"
             name="check-circle"
             color="#00a651"
+            size={scale(53)}
+          />
+        );
+      case 'warn':
+        return (
+          <Icon
+            style={{ paddingHorizontal: scale(15) }}
+            type="awsome"
+            name="exclamation-circle"
+            color="#f26522"
+            size={scale(53)}
+          />
+        );
+      case 'noInternet':
+        return (
+          <Icon
+            style={{ paddingHorizontal: scale(15) }}
+            name="no-wifi"
+            color="#a1a1a1"
             size={scale(53)}
           />
         );
@@ -520,7 +531,6 @@ export default class DropdownAlert extends Component {
     const { isOpen, type } = this.state;
     if (isOpen) {
       let style = this.getStyleForType(type);
-      const source = this.getSourceForType(type);
       const backgroundColor = this.getBackgroundColorForType(type);
       let {
         activeStatusBarBackgroundColor,
@@ -558,8 +568,8 @@ export default class DropdownAlert extends Component {
         ],
         position: 'absolute',
         top: this.state.topValue,
-        left: scale(15),
-        right: scale(15),
+        left: scale(10),
+        right: scale(10),
         elevation: this.props.elevation
       };
       if (this.props.zIndex != null) wrapperStyle['zIndex'] = this.props.zIndex;
@@ -586,11 +596,6 @@ export default class DropdownAlert extends Component {
                 <View
                   style={StyleSheet.flatten(this.props.defaultTextContainer)}
                 >
-                  {onRefresh && (
-                    <Ripple onPress={() => onRefresh()}>
-                      <Icon name="refresh" type="awsome" />
-                    </Ripple>
-                  )}
                   {this.renderMessage()}
                   {this.renderImage(type)}
                 </View>

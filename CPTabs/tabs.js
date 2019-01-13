@@ -38,8 +38,6 @@ export default class Tabs extends Component {
   ];
   // Pull children out of props passed from App component
   render({ children, borderColor, fontSize,disabled } = this.props) {
-    console.log('active tab in tab', this.props.activeTab);
-
     return (
       <View style={{ flex: 1 }}>
         <View style={{ flexDirection: 'row' }}>

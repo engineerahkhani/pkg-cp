@@ -44,6 +44,12 @@ const MyStatusBar = ({ backgroundColor, ...props }) => (
 );
 
 class Container extends Component {
+  componentWillReceiveProps(nexProps) {
+    if (nexProps.message && nexProps.message.message === null && this.props.message.message !== nexProps.message.message) {
+      this.dropdown.closeDirectly()
+
+    }
+  }
   render() {
     const {
       loading,
@@ -57,7 +63,7 @@ class Container extends Component {
     const errorItems = errors.filter(item => item.errorMessage !== undefined);
     return (
       <View style={styles.container}>
-        <StatusBar  />
+        <StatusBar />
         {errorItems.length > 0 &&
           this.dropdown &&
           this.dropdown.alertWithType(
@@ -73,14 +79,24 @@ class Container extends Component {
           message &&
           message.type === 'error' &&
           this.dropdown.alertWithType('error', 'خطا', message.message)}
+        {this.dropdown &&
+          message &&
+          message.type === 'warning' &&
+          this.dropdown.alertWithType('warn', 'warning', message.message)}
+        {this.dropdown &&
+          message &&
+          message.type === 'noInternet' &&
+          this.dropdown.alertWithType('noInternet', 'noInternet', message.message)}
         {loading ? (
           <Loading color={theme.header_bg_color} send={!!send} />
         ) : (
-          this.props.children
-        )}
+            this.props.children
+          )}
         <DropdownAlert
           errorColor="#ffc1c1"
           successColor="#ace2c7"
+          warnColor="#fffba8"
+          noInternetColor="#e1e1e1"
           titleStyle={{ textAlign: 'right', display: 'none' }}
           imageStyle={{ display: 'none' }}
           messageStyle={{
@@ -89,8 +105,8 @@ class Container extends Component {
             fontFamily: 'IRANSansMobile',
             fontSize: fontSize(scale(33))
           }}
-          defaultContainer={{justifyContent:'center',alignItems:'center',minHeight:metrics.headerHeight}}
-          defaultTextContainer={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}
+          defaultContainer={{ justifyContent: 'center', alignItems: 'center', minHeight: metrics.headerHeight }}
+          defaultTextContainer={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}
           closeInterval={7500}
           ref={ref => (this.dropdown = ref)}
           updateStatusBar={false}
@@ -100,6 +116,7 @@ class Container extends Component {
           endDelta={scale(15)}
           onClose={data => disPatchClose(data)}
           onRefresh={onRefresh}
+          messageNumOfLines={2}
         />
       </View>
     );
@@ -108,7 +125,7 @@ class Container extends Component {
 
 const mapStateToProps = state => {
   return {
-    theme:state.theme.data
+    theme: state.theme.data
   };
 };
 const mapDispatchToProps = dispatch => ({
