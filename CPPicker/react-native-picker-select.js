@@ -149,11 +149,11 @@ export default class RNPickerSelect extends PureComponent {
           <View
             style={{
               alignItems: 'center',
-              paddingVertical: index === 0 ? scale(80) : scale(50)
+              paddingVertical: index === 0 ? scale(60) : scale(50)
             }}
           >
             <Text
-              size={index === 0 ? 35 : 33}
+              size={index === 0 ? 30 : 33}
               fontFamily={
                 index === 0 ? 'IRANSansMobile_Medium' : 'IRANSansMobile'
               }

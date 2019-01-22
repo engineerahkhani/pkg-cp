@@ -46,10 +46,10 @@ export default class TimerCountDown extends React.Component {
     displayDestructMS = (counter) => {
         const {d, h, m, s} = destructMS(counter);
         return <ImageBackground
-            source={{uri: this.props.theme.header_bg_img}}
+            source={{uri: this.props.backgroundImage}}
             style={{
                 width: '100%',
-                backgroundColor: this.props.theme.base_button_bg_color || '#00a651',
+                backgroundColor: this.props.backgroundColor || '#00a651',
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',

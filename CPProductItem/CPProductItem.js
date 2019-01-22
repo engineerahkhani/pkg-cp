@@ -11,7 +11,7 @@ import {
   PercentLabel
 } from '../index';
 
-export default (CPProductDetail = ({ theme, ...props }) => {
+export default (CPProductDetail = ({ ratingStarColor,baseDiscountBgImg,productPriceColor, ...props }) => {
   
   const renderDiscountPrice = () => {
     if (props.priceOption === 1) {
@@ -76,7 +76,7 @@ export default (CPProductDetail = ({ theme, ...props }) => {
             }}
           >
             {renderDiscountPrice()}
-            <Text size={25} color={theme.product_price_color}>
+            <Text size={25} color={productPriceColor}>
               <PersianNumber
                 number={
                   props.priceOption === 1
@@ -87,7 +87,7 @@ export default (CPProductDetail = ({ theme, ...props }) => {
             </Text>
           </View>
           <Rating
-            starColor={theme.rating_star_color}
+            starColor={ratingStarColor}
             starSize={40}
             disabled
             starCount={props.product.rateAverage}
@@ -95,7 +95,7 @@ export default (CPProductDetail = ({ theme, ...props }) => {
           
         </View>
         <PercentLabel
-            source={{ uri: theme.base_discount_bg_img }}
+            source={{ uri:baseDiscountBgImg }}
             style={{
               top: Platform.OS === 'ios' ? scale(0) : scale(0),
               left: scale(30),

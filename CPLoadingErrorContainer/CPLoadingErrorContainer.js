@@ -58,7 +58,6 @@ class Container extends Component {
       disPatchClose,
       message,
       onRefresh,
-      theme
     } = this.props;
     const errorItems = errors.filter(item => item.errorMessage !== undefined);
     return (
@@ -88,7 +87,7 @@ class Container extends Component {
           message.type === 'noInternet' &&
           this.dropdown.alertWithType('noInternet', 'noInternet', message.message)}
         {loading ? (
-          <Loading color={theme.header_bg_color} send={!!send} />
+          <Loading color={"#ff5c77"} send={!!send} />
         ) : (
             this.props.children
           )}
@@ -125,7 +124,6 @@ class Container extends Component {
 
 const mapStateToProps = state => {
   return {
-    theme: state.theme.data
   };
 };
 const mapDispatchToProps = dispatch => ({

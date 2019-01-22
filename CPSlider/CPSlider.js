@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Dimensions } from 'react-native';
-import { Button, Spinner } from 'native-base';
 import MultiSlider from './MultiSlider';
 import { Number } from '../Number';
 import { Icon, Text, PersianNumber, scale, ElevatedView } from '../index';

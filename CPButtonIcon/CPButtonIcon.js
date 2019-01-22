@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container, Header, Content, View, Button } from 'native-base';
 import { Ripple, scale, Text, Icon } from 'pkg-cp';
 
 export default (CPButtonIcon = props => {

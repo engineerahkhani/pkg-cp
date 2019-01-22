@@ -42,7 +42,6 @@ class CPList extends Component {
     const {
       RenderItem,
       listLayoutType,
-      theme,
       ItemKey,
     } = this.props;
     return (
@@ -52,7 +51,6 @@ class CPList extends Component {
           index={index}
           onPress={() => this.onListItemPress(item)}
           itemViewType={listLayoutType}
-          theme={theme}
           {...this.props}
         />
         {this.renderSeparator()}
