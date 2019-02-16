@@ -1,28 +1,30 @@
 {
-  "_from": "pkg-cp",
-  "_id": "pkg-cp@1.10.0",
+  "_from": "pkg-cp@^1.33.0",
+  "_id": "pkg-cp@1.33.0",
   "_inBundle": false,
-  "_integrity": "sha512-SmxdtuyIbCvJJWvNT8vDrt9f2gPLfs7fPk26fxEQc30BvUd/z+XtyV1Pl18SUa4hRSZbDZeHBqLSktIBLhRz7w==",
+  "_integrity": "sha512-PgF6Jv7mXRN4JUIieMdK1/gU3TyZyt1qXxmuy0UeRAUf0WOgthT8rBPkIdumUHgDZU0a/7sxYCIYkuJEarvwdA==",
   "_location": "/pkg-cp",
-  "_phantomChildren": {},
+  "_phantomChildren": {
+    "prop-types": "15.6.2",
+    "react-native-animatable": "1.3.1"
+  },
   "_requested": {
-    "type": "tag",
+    "type": "range",
     "registry": true,
-    "raw": "pkg-cp",
+    "raw": "pkg-cp@^1.33.0",
     "name": "pkg-cp",
     "escapedName": "pkg-cp",
-    "rawSpec": "",
+    "rawSpec": "^1.33.0",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "^1.33.0"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pkg-cp/-/pkg-cp-1.10.0.tgz",
-  "_shasum": "be06308add80ce98de57f947514610e94d2c2d59",
-  "_spec": "pkg-cp",
-  "_where": "/Users/apple/projects/MotherFlower_App",
+  "_resolved": "https://registry.npmjs.org/pkg-cp/-/pkg-cp-1.33.0.tgz",
+  "_shasum": "b48fec96b775293fb84b137d9cb8d68437fffa58",
+  "_spec": "pkg-cp@^1.33.0",
+  "_where": "/Users/apple/projects/MotherFlower_App_V2",
   "author": "",
   "bundleDependencies": false,
   "dependencies": {
@@ -31,16 +33,14 @@
     "google-libphonenumber": "^3.1.8",
     "react-native-dropdownalert": "^3.4.0",
     "react-native-elevated-view": "0.0.6",
-    "react-native-fast-image": "^4.0.14",
+    "react-native-indicators": "^0.13.0",
     "react-native-material-ripple": "^0.8.0",
     "react-native-material-textfield": "^0.12.0",
     "react-native-modal": "^6.1.0",
-    "react-native-simple-toast": "0.0.8",
     "react-native-size-matters": "^0.1.1",
     "react-native-snap-carousel": "^3.7.2",
     "react-native-star-rating": "^1.0.9",
-    "react-native-timer": "^1.3.3",
-    "react-native-indicators": "^0.13.0"
+    "react-native-timer": "^1.3.3"
   },
   "deprecated": false,
   "description": "commen rtl  react native component ",

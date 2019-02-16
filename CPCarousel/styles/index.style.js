@@ -4,8 +4,8 @@ import {scale} from '../../index';
 export const colors = {
     black: '#1a1917',
     gray: '#888888',
-    background1: '#B721FF',
-    background2: '#21D4FD'
+    background1: '#fff',
+    background2: '#fff'
 };
 
 export default StyleSheet.create({

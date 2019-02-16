@@ -36,6 +36,7 @@ export {default as DropdownAlert} from './DropdownAlert/DropdownAlert';
 export {default as PasswordInput} from './PasswordInput/PasswordInput';
 export {default as MultiSelect} from './CPMultiSelect/CPMultiSelect';
 export {default as APPVersionsModal} from './APPVersionsModal/APPVersionsModal';
+export {default as Placeholder} from './rn-placeholder/index';
 export {Menu} from './CPPopUpMenu/index';
 export {MenuItem} from './CPPopUpMenu/index';
 export * from 'react-native-indicators';
