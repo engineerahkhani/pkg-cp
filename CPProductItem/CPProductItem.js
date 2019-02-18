@@ -10,7 +10,6 @@ import {
   ElevatedView,
   PercentLabel
 } from '../index';
-import {Transition} from 'react-navigation-fluid-transitions';
 export default (CPProductDetail = ({ ratingStarColor,baseDiscountBgImg,productPriceColor, ...props }) => {
   
   const renderDiscountPrice = () => {
@@ -50,7 +49,6 @@ export default (CPProductDetail = ({ ratingStarColor,baseDiscountBgImg,productPr
             overflow: 'hidden'
           }}
         >
-        <Transition shared={props.shared}>
           <FadeInImage
             resizeMode="contain"
             source={props.imageUrls}
@@ -61,7 +59,6 @@ export default (CPProductDetail = ({ ratingStarColor,baseDiscountBgImg,productPr
               backgroundColor: '#fff',
             }}
           />
-          </Transition>
         </View>
         <View
           style={{

@@ -30,7 +30,7 @@ export default StyleSheet.create({
         backgroundColor: colors.black
     },
     exampleContainerLight: {
-        backgroundColor: 'white'
+        backgroundColor: 'transparent'
     },
     title: {
         paddingHorizontal: 30,

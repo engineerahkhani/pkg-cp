@@ -14,7 +14,7 @@ export default class App extends Component {
         return (
             <View style={{
                 flex: 1,                            // Take up all screen
-                backgroundColor
+                backgroundColor,
             }}>
                 <Tabs
                     fontSize={fontSize}
@@ -32,7 +32,7 @@ export default class App extends Component {
                                 badgeCount={tab.badgeCount}
                                 style={{
                                     flex: 1,                            // Take up all available space
-                                    justifyContent: 'center',           // Center vertically
+                                    justifyContent: 'flex-start',           // Center vertically
                                     alignItems: 'center',               // Center horizontally
                                     backgroundColor,
                                 }}
