@@ -140,7 +140,7 @@ export default class RNPickerSelect extends PureComponent {
     const { items } = this.state;
     return items.map((item, index) => {
       return (
-        <Ripple
+        <TouchableOpacity
           style={{ justifyContent: 'center' }}
           key={item.key || item.label}
           disabled={item.value === null}
@@ -163,9 +163,9 @@ export default class RNPickerSelect extends PureComponent {
             </Text>
           </View>
           {index != items.length - 1 && (
-            <View style={{ borderColor: '#c9c9c9', borderWidth: scale(1) }} />
+            <View style={{ borderColor: '#c9c9c9', borderWidth: StyleSheet.hairlineWidth }} />
           )}
-        </Ripple>
+        </TouchableOpacity>
       );
     });
   }
@@ -216,15 +216,17 @@ export default class RNPickerSelect extends PureComponent {
               marginBottom:Platform.OS==='ios'?scale(15):scale(12),
             }}
           >
-            <Icon
+            {
+              disabled ||<Icon
               size={scale(25)}
               color={color}
               name="down"
               style={{ flexGrow: 1 }}
             />
+            }
             <Text
               size={37}
-              color={textColor||color}
+              color={disabled ?'#999' : textColor||color}
               fontFamily="IRANSansMobile"
               style={{
                 flexGrow: 15,

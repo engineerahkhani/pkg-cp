@@ -28,7 +28,8 @@ export {default as PercentLabel} from './CPPercentLabel/CPPercentLabel'
 export {default as Carousel} from './CPCarousel'
 export {default as FilterInputList} from './CPFilterInputList/CPFilterInputList'
 export {default as Validator} from './CPValidator/CPValidator'
-export {default as TimerCountDown} from './TimerCountDown/TimerCountDown'
+export {default as TimerCountdown }  from './react-native-timer-countdown';
+
 export {default as Toast} from './CPToast/CPToast'
 export {default as fontSize } from './FontSize/FontSize';
 export {default as RoundedButton} from './CPRoundedButton/CPRoundedButton';

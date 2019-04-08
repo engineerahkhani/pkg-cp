@@ -38,9 +38,8 @@ export default (CPProductDetail = ({ ratingStarColor,baseDiscountBgImg,productPr
   return (
     <Ripple
       onPress={() => props.onClick()}
-      style={props.style}
     >
-      <ElevatedView elevation={0} >
+      <ElevatedView style={props.style} >
         <View
           style={{
             borderRadius: 4,

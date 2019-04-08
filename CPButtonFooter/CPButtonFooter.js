@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ImageBackground } from 'react-native';
-import { Ripple, Icon, Text, scale, WaveIndicator } from '../index';
+import { Ripple, Icon, Text, scale, DotIndicator } from '../index';
 
 export const ButtonFooter = props => {
   return (
@@ -18,9 +18,9 @@ export const ButtonFooter = props => {
         }}
       >
         {props.loading ? (
-          <WaveIndicator
+          <DotIndicator
             count={3}
-            size={30}
+            size={15}
             color={props.indicatorColor}
           />
         ) : (

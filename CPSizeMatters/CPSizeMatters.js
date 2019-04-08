@@ -6,5 +6,11 @@ export function scale(value) {
          size = value/3.05;
 
     }
-    return moderateScale(size,0.5);
+    return round(moderateScale(size,0.5),1)
 };
+
+function round(value, decimals) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+  }
+  
+  

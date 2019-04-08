@@ -1,13 +1,12 @@
 import React from 'react'
-import {ImageBackground, View} from 'react-native';
+import {ImageBackground, StatusBar} from 'react-native';
 import {Ripple, Text, Icon, scale, RoundedButton} from "../index";
-
 
 export default SubHeader = (props) => {
     return (
         <ImageBackground
             style={{
-                height: props.headerHight,
+                height: props.headerHight + scale(70),
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'flex-end',

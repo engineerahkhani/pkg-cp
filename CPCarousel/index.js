@@ -6,15 +6,14 @@ import SliderEntry from './components/SliderEntry';
 import styles, { colors } from './styles/index.style';
 import { ENTRIES1, ENTRIES2 } from './static/entries';
 import { scrollInterpolators, animatedStyles } from './utils/animations';
+import { scale } from 'pkg-cp';
 
-const IS_ANDROID = Platform.OS === 'android';
-const SLIDER_1_FIRST_ITEM = 1;
 
 export default class example extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      slider1ActiveSlide: SLIDER_1_FIRST_ITEM
+      activeSlide: 0
     };
   }
 
@@ -32,10 +31,10 @@ export default class example extends Component {
           backgroundColor: '#fff',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: this.props.paddingHorizontal,
-          paddingRight: this.props.paddingHorizontal / 2,
-          paddingLeft: Platform.OS === 'ios' ? 0 : this.props.paddingHorizontal,
-          paddingBottom: this.props.paddingHorizontal / 2
+          padding: 0,
+         /*  paddingRight: 0,
+          paddingLeft: 0,
+          paddingBottom: this.props.paddingHorizontal / 2 */
         }}
       >
         <Carousel
@@ -47,9 +46,27 @@ export default class example extends Component {
           contentContainerCustomStyle={styles.sliderContentContainer}
           layout={this.props.type}
           loop={true}
-          loopClonesPerSide={8}
-          layoutCardOffset={18}
+          onSnapToItem={(index) => this.setState({ activeSlide: index }) }
+          // loopClonesPerSide={8}
+          // layoutCardOffset={18}
         />
+        <Pagination
+              dotsLength={this.props.items.length}
+              activeDotIndex={this.state.activeSlide}
+              containerStyle={{ paddingVertical:scale(10) }}
+              dotStyle={{
+                  width: scale(80),
+                  height: scale(20),
+                  //borderRadius: 5,
+                  backgroundColor: this.props.activeDotColor,
+                  marginHorizontal:scale(5)
+              }}
+              inactiveDotStyle={{
+                  backgroundColor:'#c9c9c9'
+              }}
+              inactiveDotOpacity={0.4}
+              inactiveDotScale={0.6}
+            />
       </View>
     );
   }
